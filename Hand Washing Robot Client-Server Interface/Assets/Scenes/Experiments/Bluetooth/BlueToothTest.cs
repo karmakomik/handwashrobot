@@ -7,12 +7,14 @@ public class BlueToothTest : MonoBehaviour
     AndroidJavaClass blCommClass;
     AndroidJavaObject blCommObj;
     AndroidJavaObject blDevice;
+    AndroidJavaObject blSimpleDevice;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        blCommClass = new AndroidJavaClass("com.harrysoft.androidbluetoothserial.BluetoothManager");
-        blCommObj = blCommClass.GetStatic<AndroidJavaObject>("getInstance");
+        //blCommClass = new AndroidJavaClass("com.harrysoft.androidbluetoothserial.BluetoothManager");
+        //blCommObj = blCommClass.CallStatic<AndroidJavaObject>("getInstance");
         /*
             List<BluetoothDevice> pairedDevices = bluetoothManager.getPairedDevicesList();
             for (BluetoothDevice device : pairedDevices) {
@@ -21,8 +23,12 @@ public class BlueToothTest : MonoBehaviour
             }
 }         
          */
-        //blDevice = blCommObj.Call<AndroidJavaObject>("openSerialDevice", "00:18:e4:40:00:06");
-        //blDevice.Call("sendMessage", "1");
+        //blDevice = blCommObj.Call<AndroidJavaObject>("openSerialDevice", "00:18:E4:40:00:06");
+        //blSimpleDevice = blDevice.Call<AndroidJavaObject>("toSimpleDeviceInterface");
+        //blSimpleDevice.Call("sendMessage", "1");
+
+        blCommClass = new AndroidJavaClass("hricomm.unni.com.blcomlib.BlueToothConnection");
+        blCommClass.CallStatic("testFN", "yoyo");
     }
 
     // Update is called once per frame
