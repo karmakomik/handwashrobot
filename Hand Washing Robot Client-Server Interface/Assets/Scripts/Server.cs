@@ -5,28 +5,108 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using UnityEngine.UI;
 
 public class Server : MonoBehaviour
 {
-    private static int localPort;
+    WebCamTexture webCamTexture;
+    public RawImage rawImage;
 
+    private static int localPort;
 
     // prefs
     private string IP;  // define in init
     public int port;  // define in init
+    public int portVideoReceive;
 
     // "connection" things
     IPEndPoint remoteEndPoint;
     UdpClient client;
+    UdpClient clientVideoReceive;
+
+    // receiving Thread
+    Thread receiveVideoThread;
 
     // gui
     string strMessage = "";
+
+    // infos
+    public string lastReceivedUDPPacket = "";
+    public string allReceivedUDPPackets = ""; // clean up this from time to time!
 
 
     // start from unity3d
     public void Start()
     {
         init();
+        initVideoReceive();
+        webCamTexture = new WebCamTexture(Screen.width / 2, Screen.height / 2); //new WebCamTexture();
+        rawImage.texture = webCamTexture;
+        //webCamTexture.Play();
+    }
+
+    // init
+    private void initVideoReceive()
+    {
+        // Endpunkt definieren, von dem die Nachrichten gesendet werden.
+        print("UDPSend.init()");
+
+        // define port
+        portVideoReceive = 8056;
+
+        // status
+        print("Sending to 127.0.0.1 : " + portVideoReceive);
+        print("Test-Sending to this Port: nc -u 127.0.0.1  " + portVideoReceive + "");
+
+
+        // ----------------------------
+        // Abhören
+        // ----------------------------
+        // Lokalen Endpunkt definieren (wo Nachrichten empfangen werden).
+        // Einen neuen Thread für den Empfang eingehender Nachrichten erstellen.
+        receiveVideoThread = new Thread(
+            new ThreadStart(ReceiveVideoData));
+        receiveVideoThread.IsBackground = true;
+        receiveVideoThread.Start();
+
+    }
+
+    // receive thread
+    private void ReceiveVideoData()
+    {
+        clientVideoReceive = new UdpClient(portVideoReceive);
+        //client = new TcpClient(MenuHandler.IPAddress, port);
+        //var serverStream = client.GetStream();
+        while (true)
+        {
+
+            try
+            {
+                // Bytes empfangen.
+                IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
+                byte[] data = clientVideoReceive.Receive(ref anyIP);
+                //serverStream.
+                //client.rec
+
+                // Bytes mit der UTF8-Kodierung in das Textformat kodieren.
+                string text = Encoding.UTF8.GetString(data);
+
+                // Den abgerufenen Text anzeigen.
+                Debug.Log(">> " + text);
+                //++messageNum;
+                //currentUI = text;
+                // latest UDPpacket
+                lastReceivedUDPPacket = text;
+
+                // ....
+                allReceivedUDPPackets = allReceivedUDPPackets + text;
+
+            }
+            catch (Exception err)
+            {
+                Debug.Log(err.ToString());
+            }
+        }
     }
 
     // OnGUI
@@ -103,6 +183,23 @@ public class Server : MonoBehaviour
         }
         while (true);
     }
+
+    // getLatestUDPPacket
+    // cleans up the rest
+    public string getLatestUDPPacket()
+    {
+        allReceivedUDPPackets = "";
+        return lastReceivedUDPPacket;
+    }
+
+    void OnDisable()
+    {
+        if (receiveVideoThread.IsAlive)
+            receiveVideoThread.Abort();
+
+        client.Close();
+    }
+
 }
 
 
