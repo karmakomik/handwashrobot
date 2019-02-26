@@ -9,8 +9,8 @@ using UnityEngine.UI;
 
 public class Server : MonoBehaviour
 {
-    WebCamTexture webCamTexture;
-    public RawImage rawImage;
+    Texture2D tex;
+    byte[] data;
 
     private static int localPort;
 
@@ -22,10 +22,6 @@ public class Server : MonoBehaviour
     // "connection" things
     IPEndPoint remoteEndPoint;
     UdpClient client;
-    UdpClient clientVideoReceive;
-
-    // receiving Thread
-    Thread receiveVideoThread;
 
     // gui
     string strMessage = "";
@@ -40,8 +36,9 @@ public class Server : MonoBehaviour
     {
         init();
         initVideoReceive();
-        webCamTexture = new WebCamTexture(Screen.width / 2, Screen.height / 2); //new WebCamTexture();
-        rawImage.texture = webCamTexture;
+        tex = new Texture2D(0, 0);
+        //webCamTexture = new WebCamTexture(Screen.width / 2, Screen.height / 2); //new WebCamTexture();
+        //rawImage.texture = webCamTexture;
         //webCamTexture.Play();
     }
 
@@ -59,54 +56,6 @@ public class Server : MonoBehaviour
         print("Test-Sending to this Port: nc -u 127.0.0.1  " + portVideoReceive + "");
 
 
-        // ----------------------------
-        // Abhören
-        // ----------------------------
-        // Lokalen Endpunkt definieren (wo Nachrichten empfangen werden).
-        // Einen neuen Thread für den Empfang eingehender Nachrichten erstellen.
-        receiveVideoThread = new Thread(
-            new ThreadStart(ReceiveVideoData));
-        receiveVideoThread.IsBackground = true;
-        receiveVideoThread.Start();
-
-    }
-
-    // receive thread
-    private void ReceiveVideoData()
-    {
-        clientVideoReceive = new UdpClient(portVideoReceive);
-        //client = new TcpClient(MenuHandler.IPAddress, port);
-        //var serverStream = client.GetStream();
-        while (true)
-        {
-
-            try
-            {
-                // Bytes empfangen.
-                IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
-                byte[] data = clientVideoReceive.Receive(ref anyIP);
-                //serverStream.
-                //client.rec
-
-                // Bytes mit der UTF8-Kodierung in das Textformat kodieren.
-                string text = Encoding.UTF8.GetString(data);
-
-                // Den abgerufenen Text anzeigen.
-                Debug.Log(">> " + text);
-                //++messageNum;
-                //currentUI = text;
-                // latest UDPpacket
-                lastReceivedUDPPacket = text;
-
-                // ....
-                allReceivedUDPPackets = allReceivedUDPPackets + text;
-
-            }
-            catch (Exception err)
-            {
-                Debug.Log(err.ToString());
-            }
-        }
     }
 
     // OnGUI
@@ -194,9 +143,6 @@ public class Server : MonoBehaviour
 
     void OnDisable()
     {
-        if (receiveVideoThread.IsAlive)
-            receiveVideoThread.Abort();
-
         client.Close();
     }
 

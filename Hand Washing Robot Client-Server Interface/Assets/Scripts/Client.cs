@@ -10,8 +10,9 @@ using UnityEngine.UI;
 
 public class Client : MonoBehaviour
 {
-    WebCamTexture webCamTexture;
-    public RawImage rawImage;
+    //WebCamTexture webCamTexture;
+    //Texture2D currTexture;
+    //public RawImage rawImage;
     //Arduino Comm
     AndroidJavaClass blCommClass;
     AndroidJavaObject blCommObj;
@@ -71,10 +72,10 @@ public class Client : MonoBehaviour
         initBLConn();
 #endif
         init();
-        initVideoSend();
 
-        webCamTexture = new WebCamTexture(Screen.width / 2, Screen.height / 2); //new WebCamTexture();
-        rawImage.texture = webCamTexture;
+        //webCamTexture = new WebCamTexture(Screen.width / 2, Screen.height / 2); //new WebCamTexture();
+        //currTexture = new Texture2D(Screen.width / 2, Screen.height / 2);
+        //rawImage.texture = webCamTexture;
         //webCamTexture.Play();
     }
 
@@ -86,7 +87,8 @@ public class Client : MonoBehaviour
             currMsgNum = messageNum;
         }
 
-        sendVideo("Client to Server test video");
+        //sendVideo();
+        //sendVideo("Client to Server test video");
     }
 
     // OnGUI
@@ -100,49 +102,6 @@ public class Client : MonoBehaviour
                 + "\nLast Packet: \n" + lastReceivedUDPPacket
                 + "\n\nAll Messages: \n" + allReceivedUDPPackets
                 , style);*/
-    }
-
-    void initVideoSend()
-    {
-        // Endpunkt definieren, von dem die Nachrichten gesendet werden.
-        Debug.Log("UDPSend.init()");
-
-        // define
-        //IP="127.0.0.1";
-        //IP = "192.168.0.102";
-        IPVideoSend = MenuHandler.IPAddress; //Local for now
-        portVideoSend = 8056;
-
-        // ----------------------------
-        // Senden
-        // ----------------------------
-        remoteEndPointVideoSend = new IPEndPoint(IPAddress.Parse(IPVideoSend), portVideoSend);
-        clientVideoSend = new UdpClient();
-
-        // status
-        //Debug.Log("Sending to " + IP + " : " + port);
-        //Debug.Log("Testing: nc -lu " + IP + " : " + port);
-    }
-
-    // sendData
-    public void sendVideo(string message)
-    {
-        try
-        {
-            //if (message != "")
-            //{
-
-            // Daten mit der UTF8-Kodierung in das Binärformat kodieren.
-            byte[] data = Encoding.UTF8.GetBytes(message);
-
-            // Den message zum Remote-Client senden.
-            clientVideoSend.Send(data, data.Length, remoteEndPointVideoSend);
-            //}
-        }
-        catch (Exception err)
-        {
-            Debug.Log(err.ToString());
-        }
     }
 
     // init

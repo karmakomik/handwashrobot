@@ -1170,7 +1170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.27212113, y: 0.26577774}
   m_AnchorMax: {x: 0.72400004, y: 0.7944445}
-  m_AnchoredPosition: {x: -1.3499999, y: 1.5}
+  m_AnchoredPosition: {x: -1.3500061, y: 1.5}
   m_SizeDelta: {x: -2.7000122, y: -5.5999756}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &544634008
@@ -1602,8 +1602,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c673d03b810bd44eb61be8217add3b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rawImage: {fileID: 544634008}
   port: 0
+  portVideoReceive: 0
+  lastReceivedUDPPacket: 
+  allReceivedUDPPackets: 
 --- !u!4 &850388526
 Transform:
   m_ObjectHideFlags: 0
@@ -3008,6 +3010,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518082423}
   m_CullTransparentMesh: 0
+--- !u!1 &1673824107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1673824109}
+  - component: {fileID: 1673824108}
+  m_Layer: 0
+  m_Name: TCPVideoClient
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1673824108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673824107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb3dea656427eaf49a9d4109341225d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 544634008}
+  enableLog: 1
+--- !u!4 &1673824109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673824107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1088.9847, y: 560.5808, z: -14.113419}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1741156020
 GameObject:
   m_ObjectHideFlags: 0
