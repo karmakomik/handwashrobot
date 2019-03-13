@@ -26,14 +26,29 @@ void setup() {
   //delay(240);
   //leftEyeServo.detach();
   //rightEyeServo.detach();
+  //show_disgust();
+  show_appreciation();
+  dont_know
 }
 
 void loop() {
   yawServo.write(yawZeroAngle+40);
-  delay(400); 
+  delay(700); 
   yawServo.write(yawZeroAngle-40);
-  delay(400); 
-  pitchServo.write(pitchZeroAngle+40);
+  delay(700); 
+  pitchServo.write(pitchZeroAngle+60);
+  delay(700); 
+  pitchServo.write(pitchZeroAngle-40);
+  delay(700); 
+}
+
+void show_disgust()
+{
+  yawServo.write(yawZeroAngle+40);
+  delay(700); 
+  yawServo.write(yawZeroAngle-40);
+  delay(700); 
+  pitchServo.write(pitchZeroAngle+60);
   delay(700); 
   pitchServo.write(pitchZeroAngle-40);
   delay(700); 

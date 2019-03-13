@@ -17,9 +17,10 @@ public class Client : MonoBehaviour
     AndroidJavaClass blCommClass;
     AndroidJavaObject blCommObj;
 
+    Animator animator;
 
-    public GameObject smileUI, disgustUI, confusedUI, sadUI;
-    public AudioClip laughing, clapping, disgust, instruction1, instruction2;
+    public GameObject smileUI, disgustUI, confusedUI, sadUI, animationUI;
+    public AudioClip laughing, clapping, disgust, wash_hands_b4_meals, wash_hands_today_q;
     AudioSource audioSource;
     public string currentUI;
     public int messageNum, currMsgNum;
@@ -62,6 +63,10 @@ public class Client : MonoBehaviour
     // start from unity3d
     public void Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
+        animator = animationUI.GetComponent<Animator>();
+
         messageNum = 0;
         currMsgNum = 0;
         currentUI = "smile";
@@ -130,68 +135,121 @@ public class Client : MonoBehaviour
 
     }
 
+    IEnumerator wait_wash_hands_b4_meals_active()
+    {
+        yield return new WaitForSeconds(1);
+        animator.SetBool("wash_hands_b4_meals_active", false);
+    }
+    
+    IEnumerator wait_wash_hands_today_q_active()
+    {
+        yield return new WaitForSeconds(1);
+        animator.SetBool("wash_hands_today_q_active", false);
+    }
+
     public void changeUI(string text)
     {
-        if (text.Equals("show_smile"))
+        if (text.Equals("my_name_is"))
         {
-            smileUI.SetActive(true);
-            sadUI.SetActive(false);
-            disgustUI.SetActive(false);
-            confusedUI.SetActive(false);
+#if UNITY_ANDROID && !UNITY_EDITOR   
+            blCommObj.Call("sendMessage", "a");
+#endif
+        }
+        else if (text.Equals("wash_hands_b4_meals"))
+        {
+            audioSource.clip = wash_hands_b4_meals;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "f");
+#endif
+            animator.SetBool("wash_hands_b4_meals_active", true);
+            StartCoroutine(wait_wash_hands_b4_meals_active());
+        }
+        else if (text.Equals("wash_hands_aftr_toilet"))
+        {
+#if UNITY_ANDROID && !UNITY_EDITOR   
+            blCommObj.Call("sendMessage", "e");
+#endif
+        }
+        else if (text.Equals("wash_hands_today_q"))
+        {
+            audioSource.clip = wash_hands_today_q;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "d");
+#endif
+            animator.SetBool("wash_hands_today_q_active", true);
+            StartCoroutine(wait_wash_hands_today_q_active());
+        }
+        else if (text.Equals("show_disgust"))
+        {
+            audioSource.clip = disgust;
+            audioSource.Play();
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "c");
+#endif
+            animator.SetBool("ShowDisgust", true);
+        }
+        else if (text.Equals("show_appreciation"))
+        {
 #if UNITY_ANDROID && !UNITY_EDITOR   
             blCommObj.Call("sendMessage", "1");
 #endif
         }
-        else if (text.Equals("show_sadness"))
+        else if (text.Equals("dont_know"))
         {
-            smileUI.SetActive(false);
-            sadUI.SetActive(true);
-            disgustUI.SetActive(false);
-            confusedUI.SetActive(false);
-#if UNITY_ANDROID && !UNITY_EDITOR
-            blCommObj.Call("sendMessage", "2");
+#if UNITY_ANDROID && !UNITY_EDITOR   
+            blCommObj.Call("sendMessage", "1");
 #endif
         }
-        else if (text.Equals("show_confusion"))
+        else if (text.Equals("goodbye1"))
         {
-            smileUI.SetActive(false);
-            sadUI.SetActive(false);
-            disgustUI.SetActive(false);
-            confusedUI.SetActive(true);
+#if UNITY_ANDROID && !UNITY_EDITOR   
+            blCommObj.Call("sendMessage", "1");
+#endif
         }
-        else if (text.Equals("show_disgust"))
+        else if (text.Equals("step1"))
         {
-            smileUI.SetActive(false);
-            sadUI.SetActive(false);
-            disgustUI.SetActive(true);
-            confusedUI.SetActive(false);
+#if UNITY_ANDROID && !UNITY_EDITOR   
+            blCommObj.Call("sendMessage", "1");
+#endif
         }
-        else if (text.Equals("play_sound_laugh"))
+        else if (text.Equals("step2"))
         {
-            audioSource.clip = laughing;
-            audioSource.Play();
-            smileUI.SetActive(true);
-            sadUI.SetActive(false);
-            disgustUI.SetActive(false);
-            confusedUI.SetActive(false);
+#if UNITY_ANDROID && !UNITY_EDITOR   
+            blCommObj.Call("sendMessage", "1");
+#endif
         }
-        else if (text.Equals("play_sound_disgust"))
+        else if (text.Equals("step3"))
         {
-            audioSource.clip = disgust;
-            audioSource.Play();
-            smileUI.SetActive(false);
-            sadUI.SetActive(false);
-            disgustUI.SetActive(true);
-            confusedUI.SetActive(false);
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "1");
+#endif
         }
-        else if (text.Equals("play_sound_applause"))
+        else if (text.Equals("step4"))
         {
-            audioSource.clip = clapping;
-            audioSource.Play();         
-            smileUI.SetActive(true);
-            sadUI.SetActive(false);
-            disgustUI.SetActive(false);
-            confusedUI.SetActive(false);
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "1");
+#endif
+        }
+        else if (text.Equals("step5"))
+        {
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "1");
+#endif
+        }
+        else if (text.Equals("step6"))
+        {
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "1");
+#endif
+        }
+        else if (text.Equals("step7"))
+        {
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "1");
+#endif
         }
     }
 

@@ -24,6 +24,11 @@ public class MenuHandler : MonoBehaviour
         IPAddress = ipInput.text;
     }
 
+    public void setClientIP(string ip)
+    {
+        IPAddress = ip;
+    }
+
     public void startClient()
     {
         SceneManager.LoadScene(1);
