@@ -20,7 +20,8 @@ public class Client : MonoBehaviour
     Animator animator;
 
     public GameObject smileUI, disgustUI, confusedUI, sadUI, animationUI;
-    public AudioClip laughing, clapping, disgust, wash_hands_b4_meals, wash_hands_today_q, appreciation;
+    public AudioClip intro, disgust, wash_hands_b4_meals, wash_hands_today_q, appreciation;
+    public AudioClip step1, step2, step3, step4, step5, step6, step7;
     AudioSource audioSource;
     public string currentUI;
     public int messageNum, currMsgNum;

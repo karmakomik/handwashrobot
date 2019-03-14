@@ -681,12 +681,18 @@ MonoBehaviour:
   confusedUI: {fileID: 301566035}
   sadUI: {fileID: 2029009573}
   animationUI: {fileID: 669500768}
-  laughing: {fileID: 8300000, guid: 8825f3d83d667814e8cda4eee25aa869, type: 3}
-  clapping: {fileID: 8300000, guid: b692b2eb291a3e148b7bb1ad847a0970, type: 3}
+  intro: {fileID: 8300000, guid: 96e64acbdc1da3f45a5dbf07ea07d839, type: 3}
   disgust: {fileID: 8300000, guid: 8a674fd3d15d36c43b4b40b19268c7bd, type: 3}
   wash_hands_b4_meals: {fileID: 8300000, guid: 100a78c51d7a37a4e9d59d7c59b84c53, type: 3}
   wash_hands_today_q: {fileID: 8300000, guid: aa1abf2f2c1c62149903b3494e3ffdf2, type: 3}
   appreciation: {fileID: 8300000, guid: 788cea4ad1d68d441997832d13633536, type: 3}
+  step1: {fileID: 8300000, guid: 7ae9f0c7bd4014641b5303177cf6925c, type: 3}
+  step2: {fileID: 8300000, guid: 853d0331591fe7c449c1a189e3f7b191, type: 3}
+  step3: {fileID: 8300000, guid: bf9252ee656c0814a878819daf3efb1f, type: 3}
+  step4: {fileID: 8300000, guid: bf94a154ff009954d9eb2ac8201b411c, type: 3}
+  step5: {fileID: 8300000, guid: 80bc730e6fdf2e044bdfc4dc7d06dfe0, type: 3}
+  step6: {fileID: 8300000, guid: 6be46bf6758cd6643afb23bb45ff4d85, type: 3}
+  step7: {fileID: 8300000, guid: 52b24c664fd548648be700e6d490b587, type: 3}
   currentUI: 
   messageNum: 0
   currMsgNum: 0
