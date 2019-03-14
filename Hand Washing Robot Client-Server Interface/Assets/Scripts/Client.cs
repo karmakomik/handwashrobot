@@ -20,7 +20,7 @@ public class Client : MonoBehaviour
     Animator animator;
 
     public GameObject smileUI, disgustUI, confusedUI, sadUI, animationUI;
-    public AudioClip laughing, clapping, disgust, wash_hands_b4_meals, wash_hands_today_q;
+    public AudioClip laughing, clapping, disgust, wash_hands_b4_meals, wash_hands_today_q, appreciation;
     AudioSource audioSource;
     public string currentUI;
     public int messageNum, currMsgNum;
@@ -137,14 +137,26 @@ public class Client : MonoBehaviour
 
     IEnumerator wait_wash_hands_b4_meals_active()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         animator.SetBool("wash_hands_b4_meals_active", false);
     }
     
     IEnumerator wait_wash_hands_today_q_active()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         animator.SetBool("wash_hands_today_q_active", false);
+    }    
+
+    IEnumerator wait_show_disgust_active()
+    {
+        yield return new WaitForSeconds(1);
+        animator.SetBool("show_disgust_active", false);
+    }
+
+    IEnumerator wait_show_appreciation_active()
+    {
+        yield return new WaitForSeconds(1);
+        animator.SetBool("show_appreciation_active", false);
     }
 
     public void changeUI(string text)
@@ -189,13 +201,18 @@ public class Client : MonoBehaviour
 #if UNITY_ANDROID && !UNITY_EDITOR
             blCommObj.Call("sendMessage", "c");
 #endif
-            animator.SetBool("ShowDisgust", true);
+            animator.SetBool("show_disgust_active", true);
+            StartCoroutine(wait_show_disgust_active());
         }
         else if (text.Equals("show_appreciation"))
         {
-#if UNITY_ANDROID && !UNITY_EDITOR   
-            blCommObj.Call("sendMessage", "1");
+            audioSource.clip = appreciation;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "b");
 #endif
+            animator.SetBool("show_appreciation_active", true);
+            StartCoroutine(wait_show_appreciation_active());
         }
         else if (text.Equals("dont_know"))
         {

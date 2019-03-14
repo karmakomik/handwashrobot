@@ -686,6 +686,7 @@ MonoBehaviour:
   disgust: {fileID: 8300000, guid: 8a674fd3d15d36c43b4b40b19268c7bd, type: 3}
   wash_hands_b4_meals: {fileID: 8300000, guid: 100a78c51d7a37a4e9d59d7c59b84c53, type: 3}
   wash_hands_today_q: {fileID: 8300000, guid: aa1abf2f2c1c62149903b3494e3ffdf2, type: 3}
+  appreciation: {fileID: 8300000, guid: 788cea4ad1d68d441997832d13633536, type: 3}
   currentUI: 
   messageNum: 0
   currMsgNum: 0
