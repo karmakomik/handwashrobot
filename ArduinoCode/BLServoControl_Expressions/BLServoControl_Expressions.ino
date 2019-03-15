@@ -44,23 +44,39 @@ void parseCommand(char input)
     case 'd': //wash_hands_today_q
      //digitalWrite(LED_BUILTIN, LOW);  
       BLU.println("Recvd wash_hands_today_q signal");
-      expression_conversation();
+      expression_singlesentence();
       break;
     case 'e': //wash_hands_aftr_toilet
      //digitalWrite(LED_BUILTIN, LOW);  
       BLU.println("Recvd wash_hands_aftr_toilet signal");
-      expression_conversation();
+      expression_singlesentence();
       break;
     case 'f': //wash_hands_b4_meals
      //digitalWrite(LED_BUILTIN, LOW);  
       BLU.println("Recvd wash_hands_b4_meals signal");
-      expression_conversation(); 
+      expression_singlesentence(); 
       break;  
-    case 'g': //steps
+    case 'g': //promise
      //digitalWrite(LED_BUILTIN, LOW);  
       BLU.println("Recvd Steps Signal");
       expression_conversation(); 
-      break;                                     
+      break;   
+    case 'h': //promise beginning
+      BLU.println("Promises beginning Signal");
+      expression_long_conversation();
+      break;
+    case 'i': //goodbye thank you
+      BLU.println("goodbye signal");
+      expression_goodbye();
+      break;
+    case 'j': //steps_left
+      BLU.println("steps left signal");
+      expression_eyesToLeft();
+      break;
+    case 'k': //steps_right
+      BLU.println("steps right signal");
+      expression_eyesToRight();
+      break;
   }
 }
 
@@ -84,13 +100,13 @@ void expression_disgust() {
   reset_eyes();
   
   pitchServo.write(pitchZeroAngle+20);
-  for(int i=0;i<2;i++){
+  for(int i=0;i<3;i++){
     yawServo.write(yawZeroAngle-40);
-    delay(1000);
+    delay(150);
     yawServo.write(yawZeroAngle+20);
-    delay(600);
+    delay(150);
     yawServo.write(yawZeroAngle+40);
-    delay(1000);
+    delay(150);
   }
   reset_eyes();
   
@@ -126,7 +142,70 @@ void expression_conversation() {
     delay(600);
   } 
   reset_eyes();
+}
+
+void expression_long_conversation(){
+  reset_eyes();
   
+  pitchServo.write(pitchZeroAngle+10);
+  for(int i=0;i<4;i++){
+    yawServo.write(yawZeroAngle+10);
+    delay(600);
+    yawServo.write(yawZeroAngle-20);
+    delay(700);
+    yawServo.write(yawZeroAngle+30);
+    delay(800);
+    yawServo.write(yawZeroAngle-20);
+    delay(700);
+    yawServo.write(yawZeroAngle-30);
+    delay(600);
+  } 
+  reset_eyes();
+}
+
+void expression_singlesentence(){
+  reset_eyes();
+  pitchServo.write(pitchZeroAngle+10);
+  for(int i=0;i<2;i++){
+    yawServo.write(yawZeroAngle+10);
+    delay(200);
+    yawServo.write(yawZeroAngle-20);
+    delay(220);
+    yawServo.write(yawZeroAngle+20);
+    delay(180);  
+  }  
+  reset_eyes();
+}
+
+void expression_eyesToLeft(){
+  reset_eyes();
+  pitchServo.write(pitchZeroAngle+10);
+  yawServo.write(yawZeroAngle+20);
+}
+
+void expression_eyesToRight(){
+  reset_eyes();
+  pitchServo.write(pitchZeroAngle+10);
+  yawServo.write(yawZeroAngle-20);
+} 
+
+void expression_goodbye(){
+    reset_eyes();
+  
+  pitchServo.write(pitchZeroAngle+10);
+  for(int i=0;i<3;i++){
+    yawServo.write(yawZeroAngle+20);
+    delay(600);
+    yawServo.write(yawZeroAngle-10);
+    delay(700);
+    yawServo.write(yawZeroAngle+20);
+    delay(800);
+    yawServo.write(yawZeroAngle-30);
+    delay(700);
+    yawServo.write(yawZeroAngle-20);
+    delay(600);
+  } 
+  reset_eyes();
 }
 
 void expression_dontknow() {
@@ -141,7 +220,6 @@ void expression_dontknow() {
     delay(600);
   }  
   reset_eyes();
-  
 }
 
 void expression_idle(){
@@ -152,8 +230,8 @@ void expression_idle(){
     delay(1000);
   }  
   reset_eyes();
-  
 }
+
 
 void reset_eyes(){
   yawServo.write(yawZeroAngle);
