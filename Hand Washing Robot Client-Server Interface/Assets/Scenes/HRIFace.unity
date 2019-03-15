@@ -681,18 +681,36 @@ MonoBehaviour:
   confusedUI: {fileID: 301566035}
   sadUI: {fileID: 2029009573}
   animationUI: {fileID: 669500768}
-  intro: {fileID: 8300000, guid: 96e64acbdc1da3f45a5dbf07ea07d839, type: 3}
+  intro: {fileID: 8300000, guid: 33fedad361de85f42b9b29fcb7ba7166, type: 3}
   disgust: {fileID: 8300000, guid: 8a674fd3d15d36c43b4b40b19268c7bd, type: 3}
-  wash_hands_b4_meals: {fileID: 8300000, guid: 100a78c51d7a37a4e9d59d7c59b84c53, type: 3}
-  wash_hands_today_q: {fileID: 8300000, guid: aa1abf2f2c1c62149903b3494e3ffdf2, type: 3}
+  wash_hands_b4_meals: {fileID: 8300000, guid: 504216406bcef9643a322d008065c556, type: 3}
+  wash_hands_today_q: {fileID: 8300000, guid: dda40cf7e62bb3946ae496b8aee12379, type: 3}
   appreciation: {fileID: 8300000, guid: 788cea4ad1d68d441997832d13633536, type: 3}
-  step1: {fileID: 8300000, guid: 7ae9f0c7bd4014641b5303177cf6925c, type: 3}
-  step2: {fileID: 8300000, guid: 853d0331591fe7c449c1a189e3f7b191, type: 3}
-  step3: {fileID: 8300000, guid: bf9252ee656c0814a878819daf3efb1f, type: 3}
-  step4: {fileID: 8300000, guid: bf94a154ff009954d9eb2ac8201b411c, type: 3}
-  step5: {fileID: 8300000, guid: 80bc730e6fdf2e044bdfc4dc7d06dfe0, type: 3}
-  step6: {fileID: 8300000, guid: 6be46bf6758cd6643afb23bb45ff4d85, type: 3}
-  step7: {fileID: 8300000, guid: 52b24c664fd548648be700e6d490b587, type: 3}
+  wash_hands_aftr_toilet: {fileID: 8300000, guid: 60b0249edcab9fb4283214ad416e0e11,
+    type: 3}
+  dont_know: {fileID: 8300000, guid: ec730b159a855ce4092de87d4e455029, type: 3}
+  promise1: {fileID: 8300000, guid: 225abad798cac9041a1cc9720a176252, type: 3}
+  promise2: {fileID: 8300000, guid: 035b7939df9cf264289d89f3daae4629, type: 3}
+  promise3: {fileID: 8300000, guid: 8a633ad6a2474c848afa2d237f73755e, type: 3}
+  promise4: {fileID: 8300000, guid: c52baae6b5021464185846fca2cc1a7d, type: 3}
+  promise5: {fileID: 8300000, guid: cacd06cb4f6591f439fcd7527ca808f3, type: 3}
+  promise6: {fileID: 8300000, guid: d7644344ddaa2134483872c2c8061036, type: 3}
+  promise7: {fileID: 8300000, guid: 07e6c263a3595604b950d6e9e50f1a76, type: 3}
+  promise8: {fileID: 8300000, guid: 0bb833da50293304190dbddf96844949, type: 3}
+  steps_intro: {fileID: 8300000, guid: d192013c67babdf4c8b0fcf391b26082, type: 3}
+  step1: {fileID: 8300000, guid: 0861e6f3db3d36141b02438171ae6f4d, type: 3}
+  step2: {fileID: 8300000, guid: 9c940e2b54caf7f44acd55c47156e963, type: 3}
+  step3: {fileID: 8300000, guid: 6309005bebac2464d950cd9197b5e523, type: 3}
+  step4: {fileID: 8300000, guid: 6f7862c121441c34e9ffeb2146dd79c3, type: 3}
+  step5: {fileID: 8300000, guid: fd16be6d62b529649907246450371819, type: 3}
+  step6: {fileID: 8300000, guid: 164e5350245e15f4a8c505348321130a, type: 3}
+  step7: {fileID: 8300000, guid: a1c6998c8822e794d8d78a5a8fb0144a, type: 3}
+  step_misc_1: {fileID: 8300000, guid: 8722659f7a954a44bafa1f23a5ae4177, type: 3}
+  step_misc_2: {fileID: 8300000, guid: 317fae06c6ee0b340b9876a83ceeed04, type: 3}
+  step_misc_3: {fileID: 8300000, guid: 428a7cc329f8e2747985d06a6a8e33d6, type: 3}
+  goodbye_promise: {fileID: 8300000, guid: 71a6381363958fe4989db56270536fe6, type: 3}
+  goodbye_final_1: {fileID: 8300000, guid: b81b8c41984a6a749bd8594a5c7e2056, type: 3}
+  goodbye_final_2: {fileID: 8300000, guid: 6f5bb0c2e4853e84ca8207c4650631dc, type: 3}
   currentUI: 
   messageNum: 0
   currMsgNum: 0

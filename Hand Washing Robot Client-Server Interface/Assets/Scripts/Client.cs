@@ -20,9 +20,10 @@ public class Client : MonoBehaviour
     Animator animator;
 
     public GameObject smileUI, disgustUI, confusedUI, sadUI, animationUI;
-    public AudioClip intro, disgust, wash_hands_b4_meals, wash_hands_today_q, appreciation, wash_hands_aftr_toilet;
-    public AudioClip promise1, promise2, promise3, promise4, promise5;
-    public AudioClip step1, step2, step3, step4, step5, step6, step7;
+    public AudioClip intro, disgust, wash_hands_b4_meals, wash_hands_today_q, appreciation, wash_hands_aftr_toilet,dont_know;
+    public AudioClip promise1, promise2, promise3, promise4, promise5, promise6, promise7, promise8;
+    public AudioClip steps_intro,step1, step2, step3, step4, step5, step6, step7, step_misc_1, step_misc_2, step_misc_3;
+    public AudioClip goodbye_promise, goodbye_final_1, goodbye_final_2;
     AudioSource audioSource;
     public string currentUI;
     public int messageNum, currMsgNum;
@@ -54,7 +55,7 @@ public class Client : MonoBehaviour
     public void initBLConn()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
-        blCommObj.Call("init", "00:18:E4:40:00:06");
+        blCommObj.Call("init", "00:18:E4:40:00:06"); 
 #endif
         //onButton.SetActive(true);
         //offButton.SetActive(true);
@@ -151,7 +152,7 @@ public class Client : MonoBehaviour
 
     IEnumerator wait_show_disgust_active()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         animator.SetBool("show_disgust_active", false);
     }
 
@@ -163,8 +164,158 @@ public class Client : MonoBehaviour
 
     IEnumerator wait_intro_name_active()
     {
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(10f);
         animator.SetBool("intro_active", false);
+    }
+
+    /*IEnumerator wait_()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("", false);
+    }*/
+
+    IEnumerator wait_wash_hands_aftr_toilet_active()
+    {
+        yield return new WaitForSeconds(2f);
+        animator.SetBool("wash_hands_aftr_toilet_active", false);
+    }
+
+    IEnumerator wait_dont_know_active()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("dont_know_active", false);
+    }
+
+    IEnumerator wait_goodbye_promise_active()
+    {
+        yield return new WaitForSeconds(14f);
+        animator.SetBool("goodbye_promise_active", false);
+    }
+
+    IEnumerator wait_promise1_active()
+    {
+        yield return new WaitForSeconds(1.4f);
+        animator.SetBool("promise1_active", false);
+    }
+
+    IEnumerator wait_promise2_active()
+    {
+        yield return new WaitForSeconds(1.2f);
+        animator.SetBool("promise2_active", false);
+    }
+
+    IEnumerator wait_promise3_active()
+    {
+        yield return new WaitForSeconds(1.5f);
+        animator.SetBool("promise3_active", false);
+    }
+
+    IEnumerator wait_promise4_active()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("promise4_active", false);
+    }
+
+    IEnumerator wait_promise5_active()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("promise5_active", false);
+    }
+
+    IEnumerator wait_promise6_active()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("promise6_active", false);
+    }
+
+    IEnumerator wait_promise7_active()
+    {
+        yield return new WaitForSeconds(1.3f);
+        animator.SetBool("promise7_active", false);
+    }
+
+    IEnumerator wait_promise8_active()
+    {
+        yield return new WaitForSeconds(1.3f);
+        animator.SetBool("promise8_active", false);
+    }
+
+    IEnumerator wait_goodbye_final_1_active()
+    {
+        yield return new WaitForSeconds(5f);
+        animator.SetBool("goodbye_final_1_active", false);
+    }
+
+    IEnumerator wait_goodbye_final_2_active()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("goodbye_final_2_active", false);
+    }
+
+    IEnumerator wait_steps_intro_active()
+    {
+        yield return new WaitForSeconds(5f);
+        animator.SetBool("steps_intro_active", false);
+    }
+
+    IEnumerator wait_step1_active()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("step1_active", false);
+    }
+
+    IEnumerator wait_step2_active()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("step2_active", false);
+    }
+
+    IEnumerator wait_step3_active()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("step3_active", false);
+    }
+
+    IEnumerator wait_step4_active()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("step4_active", false);
+    }
+
+    IEnumerator wait_step5_active()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("step5_active", false);
+    }
+
+    IEnumerator wait_step6_active()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("step6_active", false);
+    }
+
+    IEnumerator wait_step7_active()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("step7_active", false);
+    }
+
+    IEnumerator wait_step_misc_1_active()
+    {
+        yield return new WaitForSeconds(2f);
+        animator.SetBool("step_misc_1_active", false);
+    }
+
+    IEnumerator wait_step_misc_2_active()
+    {
+        yield return new WaitForSeconds(2f);
+        animator.SetBool("step_misc_2_active", false);
+    }
+
+    IEnumerator wait_step_misc_3_active()
+    {
+        yield return new WaitForSeconds(4f);
+        animator.SetBool("step_misc_3_active", false);
     }
 
     public void changeUI(string text)
@@ -191,9 +342,13 @@ public class Client : MonoBehaviour
         }
         else if (text.Equals("wash_hands_aftr_toilet"))
         {
-#if UNITY_ANDROID && !UNITY_EDITOR   
+            audioSource.clip = wash_hands_aftr_toilet;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
             blCommObj.Call("sendMessage", "e");
 #endif
+            animator.SetBool("wash_hands_aftr_toilet_active", true);
+            StartCoroutine(wait_wash_hands_aftr_toilet_active());
         }
         else if (text.Equals("wash_hands_today_q"))
         {
@@ -228,57 +383,233 @@ public class Client : MonoBehaviour
         }
         else if (text.Equals("dont_know"))
         {
-#if UNITY_ANDROID && !UNITY_EDITOR   
-            blCommObj.Call("sendMessage", "1");
+            audioSource.clip = dont_know;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "f");
 #endif
+            animator.SetBool("dont_know_active", true);
+            StartCoroutine(wait_dont_know_active());
         }
-        else if (text.Equals("goodbye1"))
+        else if (text.Equals("goodbye_promise"))
         {
-#if UNITY_ANDROID && !UNITY_EDITOR   
-            blCommObj.Call("sendMessage", "1");
+            audioSource.clip = goodbye_promise;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "h");
 #endif
+            animator.SetBool("goodbye_promise_active", true);
+            StartCoroutine(wait_goodbye_promise_active());
+        }
+        else if (text.Equals("promise1"))
+        {
+            audioSource.clip = promise1;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "j");
+#endif
+            animator.SetBool("promise1_active", true);
+            StartCoroutine(wait_promise1_active());
+        }
+        else if (text.Equals("promise2"))
+        {
+            audioSource.clip = promise2;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "k");
+#endif
+            animator.SetBool("promise2_active", true);
+            StartCoroutine(wait_promise2_active());
+        }
+        else if (text.Equals("promise3"))
+        {
+            audioSource.clip = promise3;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "j");
+#endif
+            animator.SetBool("promise3_active", true);
+            StartCoroutine(wait_promise3_active());
+        }
+        else if (text.Equals("promise4"))
+        {
+            audioSource.clip = promise4;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "k");
+#endif
+            animator.SetBool("promise4_active", true);
+            StartCoroutine(wait_promise4_active());
+        }
+        else if (text.Equals("promise5"))
+        {
+            audioSource.clip = promise5;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "j");
+#endif
+            animator.SetBool("promise5_active", true);
+            StartCoroutine(wait_promise5_active());
+        }
+        else if (text.Equals("promise6"))
+        {
+            audioSource.clip = promise6;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "k");
+#endif
+            animator.SetBool("promise6_active", true);
+            StartCoroutine(wait_promise6_active());
+        }
+        else if (text.Equals("promise7"))
+        {
+            audioSource.clip = promise7;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "j");
+#endif
+            animator.SetBool("promise7_active", true);
+            StartCoroutine(wait_promise7_active());
+        }
+        else if (text.Equals("promise8"))
+        {
+            audioSource.clip = promise8;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "k");
+#endif
+            animator.SetBool("promise8_active", true);
+            StartCoroutine(wait_promise8_active());
+        }
+        else if (text.Equals("goodbye_final_1"))
+        {
+            audioSource.clip = goodbye_final_1;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "h");
+#endif
+            animator.SetBool("goodbye_final_1_active", true);
+            StartCoroutine(wait_goodbye_final_1_active());
+        }
+        else if (text.Equals("goodbye_final_2"))
+        {
+            audioSource.clip = goodbye_final_2;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "g");
+#endif
+            animator.SetBool("goodbye_final_2_active", true);
+            StartCoroutine(wait_goodbye_final_2_active());
+        }
+        else if (text.Equals("steps_intro"))
+        {
+            audioSource.clip = steps_intro;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "h");
+#endif
+            animator.SetBool("steps_intro_active", true);
+            StartCoroutine(wait_steps_intro_active());
         }
         else if (text.Equals("step1"))
         {
-#if UNITY_ANDROID && !UNITY_EDITOR   
-            blCommObj.Call("sendMessage", "1");
+            audioSource.clip = step1;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "j");
 #endif
+            animator.SetBool("step1_active", true);
+            StartCoroutine(wait_step1_active());
         }
         else if (text.Equals("step2"))
         {
-#if UNITY_ANDROID && !UNITY_EDITOR   
-            blCommObj.Call("sendMessage", "1");
+            audioSource.clip = step2;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "k");
 #endif
+            animator.SetBool("step2_active", true);
+            StartCoroutine(wait_step2_active());
         }
         else if (text.Equals("step3"))
         {
+            audioSource.clip = step3;
+            audioSource.Play();
 #if UNITY_ANDROID && !UNITY_EDITOR
-            blCommObj.Call("sendMessage", "1");
+            blCommObj.Call("sendMessage", "j");
 #endif
+            animator.SetBool("step3_active", true);
+            StartCoroutine(wait_step3_active());
         }
         else if (text.Equals("step4"))
         {
+            audioSource.clip = step4;
+            audioSource.Play();
 #if UNITY_ANDROID && !UNITY_EDITOR
-            blCommObj.Call("sendMessage", "1");
+            blCommObj.Call("sendMessage", "k");
 #endif
+            animator.SetBool("step4_active", true);
+            StartCoroutine(wait_step4_active());
         }
         else if (text.Equals("step5"))
         {
+            audioSource.clip = step5;
+            audioSource.Play();
 #if UNITY_ANDROID && !UNITY_EDITOR
-            blCommObj.Call("sendMessage", "1");
+            blCommObj.Call("sendMessage", "j");
 #endif
+            animator.SetBool("step5_active", true);
+            StartCoroutine(wait_step5_active());
         }
         else if (text.Equals("step6"))
         {
+            audioSource.clip = step6;
+            audioSource.Play();
 #if UNITY_ANDROID && !UNITY_EDITOR
-            blCommObj.Call("sendMessage", "1");
+            blCommObj.Call("sendMessage", "k");
 #endif
+            animator.SetBool("step6_active", true);
+            StartCoroutine(wait_step6_active());
         }
         else if (text.Equals("step7"))
         {
+            audioSource.clip = step7;
+            audioSource.Play();
 #if UNITY_ANDROID && !UNITY_EDITOR
-            blCommObj.Call("sendMessage", "1");
+            blCommObj.Call("sendMessage", "j");
 #endif
+            animator.SetBool("step7_active", true);
+            StartCoroutine(wait_step7_active());
+        }
+        else if (text.Equals("step_misc_1")) //Clean b/w fingers
+        {
+            audioSource.clip = step_misc_1;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "h");
+#endif
+            animator.SetBool("step_misc_1_active", true);
+            StartCoroutine(wait_step_misc_1_active());
+        }
+        else if (text.Equals("step_misc_2")) //Clean back of hand
+        {
+            audioSource.clip = step_misc_2;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "h");
+#endif
+            animator.SetBool("step_misc_2_active", true);
+            StartCoroutine(wait_step_misc_2_active());
+        }
+        else if (text.Equals("step_misc_3"))
+        {
+            audioSource.clip = step_misc_3;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "h");
+#endif
+            animator.SetBool("step_misc_3_active", true);
+            StartCoroutine(wait_step_misc_3_active());
         }
     }
 
