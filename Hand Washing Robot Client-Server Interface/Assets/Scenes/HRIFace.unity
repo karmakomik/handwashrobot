@@ -536,7 +536,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7e1ceeb1a40f7664d80b071f9aaa5da1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -682,10 +682,10 @@ MonoBehaviour:
   sadUI: {fileID: 2029009573}
   animationUI: {fileID: 669500768}
   intro: {fileID: 8300000, guid: 33fedad361de85f42b9b29fcb7ba7166, type: 3}
-  disgust: {fileID: 8300000, guid: 8a674fd3d15d36c43b4b40b19268c7bd, type: 3}
+  disgust: {fileID: 8300000, guid: 115203f126824c741b7c0816b6bb8349, type: 3}
   wash_hands_b4_meals: {fileID: 8300000, guid: 504216406bcef9643a322d008065c556, type: 3}
   wash_hands_today_q: {fileID: 8300000, guid: dda40cf7e62bb3946ae496b8aee12379, type: 3}
-  appreciation: {fileID: 8300000, guid: 788cea4ad1d68d441997832d13633536, type: 3}
+  appreciation: {fileID: 8300000, guid: c4443faa4e43e3b4097c7c2b3ab792cf, type: 3}
   wash_hands_aftr_toilet: {fileID: 8300000, guid: 60b0249edcab9fb4283214ad416e0e11,
     type: 3}
   dont_know: {fileID: 8300000, guid: ec730b159a855ce4092de87d4e455029, type: 3}
