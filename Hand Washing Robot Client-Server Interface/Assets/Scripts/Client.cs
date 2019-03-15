@@ -20,7 +20,8 @@ public class Client : MonoBehaviour
     Animator animator;
 
     public GameObject smileUI, disgustUI, confusedUI, sadUI, animationUI;
-    public AudioClip intro, disgust, wash_hands_b4_meals, wash_hands_today_q, appreciation;
+    public AudioClip intro, disgust, wash_hands_b4_meals, wash_hands_today_q, appreciation, wash_hands_aftr_toilet;
+    public AudioClip promise1, promise2, promise3, promise4, promise5;
     public AudioClip step1, step2, step3, step4, step5, step6, step7;
     AudioSource audioSource;
     public string currentUI;
@@ -160,13 +161,23 @@ public class Client : MonoBehaviour
         animator.SetBool("show_appreciation_active", false);
     }
 
+    IEnumerator wait_intro_name_active()
+    {
+        yield return new WaitForSeconds(4.5f);
+        animator.SetBool("intro_active", false);
+    }
+
     public void changeUI(string text)
     {
         if (text.Equals("my_name_is"))
         {
-#if UNITY_ANDROID && !UNITY_EDITOR   
+            audioSource.clip = intro;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
             blCommObj.Call("sendMessage", "a");
 #endif
+            animator.SetBool("intro_active", true);
+            StartCoroutine(wait_intro_name_active());
         }
         else if (text.Equals("wash_hands_b4_meals"))
         {
