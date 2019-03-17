@@ -77,6 +77,14 @@ void parseCommand(char input)
       BLU.println("steps right signal");
       expression_eyesToRight();
       break;
+    case 'y': //debug_yaw
+      BLU.println("Debug-yaw");
+      debug_yaw();
+      break;      
+    case 'z': //debug_pitch
+      BLU.println("Debug-pitch");
+      debug_pitch();
+      break;  
   }
 }
 
@@ -93,6 +101,26 @@ void loop()
     //Serial.println(val); // Use the IDE's Tools > Serial Monitor
     parseCommand(val); // parse the input
   }
+}
+
+void debug_yaw()
+{
+  reset_eyes();
+  yawServo.write(yawZeroAngle+40);
+  delay(700); 
+  yawServo.write(yawZeroAngle-40);
+  delay(700); 
+  reset_eyes();  
+}
+
+void debug_pitch()
+{
+  reset_eyes();
+  pitchServo.write(pitchZeroAngle+60);
+  delay(700); 
+  pitchServo.write(pitchZeroAngle-40);
+  delay(700); 
+  reset_eyes();
 }
 
 //Sooraj Code
@@ -181,12 +209,16 @@ void expression_eyesToLeft(){
   reset_eyes();
   pitchServo.write(pitchZeroAngle+10);
   yawServo.write(yawZeroAngle+20);
+  delay(220);
+  reset_eyes();
 }
 
 void expression_eyesToRight(){
   reset_eyes();
   pitchServo.write(pitchZeroAngle+10);
   yawServo.write(yawZeroAngle-20);
+  delay(220);
+  reset_eyes();
 } 
 
 void expression_goodbye(){
