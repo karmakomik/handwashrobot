@@ -24,6 +24,8 @@ public class Client : MonoBehaviour
     public AudioClip promise1, promise2, promise3, promise4, promise5, promise6, promise7, promise8;
     public AudioClip steps_intro,step1, step2, step3, step4, step5, step6, step7, step_misc_1, step_misc_2, step_misc_3;
     public AudioClip goodbye_promise, goodbye_final_1, goodbye_final_2;
+    public AudioClip song1, song2;
+    public AudioClip ente_peru_short, ente_veedu, pinne_parayam, mittayi, kelkunilla, classil_poku, tata, bye, enne_onnum_cheyalle;
     AudioSource audioSource;
     public string currentUI;
     public int messageNum, currMsgNum;
@@ -318,14 +320,81 @@ public class Client : MonoBehaviour
         animator.SetBool("step_misc_3_active", false);
     }
 
+    IEnumerator wait_ente_peru_pepe_active()
+    {
+        yield return new WaitForSeconds(1.3f);
+        animator.SetBool("ente_peru_pepe_active", false);
+    }
+
+    IEnumerator wait_ente_veedu_active()
+    {
+        yield return new WaitForSeconds(1.3f);
+        animator.SetBool("ente_veedu_active", false);
+    }
+
+    IEnumerator wait_enne_onnum_cheyalle_active()
+    {
+        yield return new WaitForSeconds(2f);
+        animator.SetBool("enne_onnum_cheyalle_active", false);
+    }
+
+    IEnumerator wait_pinne_parayam_active()
+    {
+        yield return new WaitForSeconds(2f);
+        animator.SetBool("pinne_parayam_active", false);
+    }
+
+    IEnumerator wait_mittayi_active()
+    {
+        yield return new WaitForSeconds(5f);
+        animator.SetBool("mittayi_active", false);
+    }
+
+    IEnumerator wait_onnum_kelkunnilla_active()
+    {
+        yield return new WaitForSeconds(3f);
+        animator.SetBool("onnum_kelkunnilla_active", false);
+    }
+
+    IEnumerator wait_classilponde_active()
+    {
+        yield return new WaitForSeconds(3f);
+        animator.SetBool("classilponde_active", false);
+    }
+
+    IEnumerator wait_song1_active()
+    {
+        yield return new WaitForSeconds(2f);
+        animator.SetBool("song1_active", false);
+    }
+
+    IEnumerator wait_bye_active()
+    {
+        yield return new WaitForSeconds(0.5f);
+        animator.SetBool("bye_active", false);
+    }
+
+    IEnumerator wait_tata_active()
+    {
+        yield return new WaitForSeconds(0.5f);
+        animator.SetBool("tata_active", false);
+    }
+
+
     public void changeUI(string text)
     {
-        if (text.Equals("my_name_is"))
+        if (text.Equals("ReconnectBL"))
+        {
+#if UNITY_ANDROID && !UNITY_EDITOR
+            initBLConn();
+#endif
+        }
+        else if (text.Equals("my_name_is"))
         {
             audioSource.clip = intro;
             audioSource.Play();
 #if UNITY_ANDROID && !UNITY_EDITOR
-            blCommObj.Call("sendMessage", "a");
+            blCommObj.Call("sendMessage", "h");
 #endif
             animator.SetBool("intro_active", true);
             StartCoroutine(wait_intro_name_active());
@@ -486,7 +555,7 @@ public class Client : MonoBehaviour
             audioSource.clip = goodbye_final_1;
             audioSource.Play();
 #if UNITY_ANDROID && !UNITY_EDITOR
-            blCommObj.Call("sendMessage", "h");
+            blCommObj.Call("sendMessage", "g");
 #endif
             animator.SetBool("goodbye_final_1_active", true);
             StartCoroutine(wait_goodbye_final_1_active());
@@ -576,7 +645,7 @@ public class Client : MonoBehaviour
             audioSource.clip = step7;
             audioSource.Play();
 #if UNITY_ANDROID && !UNITY_EDITOR
-            blCommObj.Call("sendMessage", "j");
+            blCommObj.Call("sendMessage", "l");
 #endif
             animator.SetBool("step7_active", true);
             StartCoroutine(wait_step7_active());
@@ -586,7 +655,7 @@ public class Client : MonoBehaviour
             audioSource.clip = step_misc_1;
             audioSource.Play();
 #if UNITY_ANDROID && !UNITY_EDITOR
-            blCommObj.Call("sendMessage", "h");
+            blCommObj.Call("sendMessage", "l");
 #endif
             animator.SetBool("step_misc_1_active", true);
             StartCoroutine(wait_step_misc_1_active());
@@ -611,6 +680,106 @@ public class Client : MonoBehaviour
             animator.SetBool("step_misc_3_active", true);
             StartCoroutine(wait_step_misc_3_active());
         }
+        else if (text.Equals("ente_peru"))
+        {
+            audioSource.clip = ente_peru_short;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "d");
+#endif
+            animator.SetBool("ente_peru_pepe_active", true);
+            StartCoroutine(wait_ente_peru_pepe_active());
+        }
+        else if (text.Equals("ente_veedu"))
+        {
+            audioSource.clip = ente_veedu;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "d");
+#endif
+            animator.SetBool("ente_veedu_active", true);
+            StartCoroutine(wait_ente_veedu_active());
+        }
+        else if (text.Equals("enne_onnum_cheyalle"))
+        {
+            audioSource.clip = enne_onnum_cheyalle;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "c");
+#endif
+            animator.SetBool("enne_onnum_cheyalle_active", true);
+            StartCoroutine(wait_enne_onnum_cheyalle_active());
+        }
+        else if (text.Equals("pinne_parayam"))
+        {
+            audioSource.clip = pinne_parayam;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "d");
+#endif
+            animator.SetBool("pinne_parayam_active", true);
+            StartCoroutine(wait_pinne_parayam_active());
+        }
+        else if (text.Equals("mittayi"))
+        {
+            audioSource.clip = mittayi;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "l");
+#endif
+            animator.SetBool("mittayi_active", true);
+            StartCoroutine(wait_mittayi_active());
+        }
+        else if (text.Equals("kelkunnilla"))
+        {
+            audioSource.clip = kelkunilla;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "n");
+#endif
+            animator.SetBool("onnum_kelkunnilla_active", true);
+            StartCoroutine(wait_onnum_kelkunnilla_active());
+        }
+        else if (text.Equals("classil_poku"))
+        {
+            audioSource.clip = classil_poku;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "l");
+#endif
+            animator.SetBool("classilponde_active", true);
+            StartCoroutine(wait_classilponde_active());
+        }
+        else if (text.Equals("song1"))
+        {
+            audioSource.clip = song1;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            //blCommObj.Call("sendMessage", "o");
+#endif
+            //animator.SetBool("song1_active", true);
+            //StartCoroutine(wait_song1_active());
+        }
+        else if (text.Equals("tata"))
+        {
+            audioSource.clip = tata;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "m");
+#endif
+            animator.SetBool("tata_active", true);
+            StartCoroutine(wait_tata_active());
+        }
+        else if (text.Equals("bye"))
+        {
+            audioSource.clip = bye;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "m");
+#endif
+            animator.SetBool("bye_active", true);
+            StartCoroutine(wait_bye_active());
+        }
     }
 
     // receive thread
@@ -624,16 +793,13 @@ public class Client : MonoBehaviour
 
             try
             {
-                // Bytes empfangen.
                 IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
                 byte[] data = client.Receive(ref anyIP);
                 //serverStream.
                 //client.rec
 
-                // Bytes mit der UTF8-Kodierung in das Textformat kodieren.
                 string text = Encoding.UTF8.GetString(data);
 
-                // Den abgerufenen Text anzeigen.
                 Debug.Log(">> " + text);
                 ++messageNum;
                 currentUI = text;

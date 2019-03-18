@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using UnityEngine.UI;
+using System.IO;
 
 public class Server : MonoBehaviour
 {
@@ -45,7 +46,6 @@ public class Server : MonoBehaviour
     // init
     private void initVideoReceive()
     {
-        // Endpunkt definieren, von dem die Nachrichten gesendet werden.
         print("UDPSend.init()");
 
         // define port
@@ -81,13 +81,16 @@ public class Server : MonoBehaviour
     // init
     public void init()
     {
-        // Endpunkt definieren, von dem die Nachrichten gesendet werden.
         Debug.Log("UDPSend.init()");
 
         // define
         //IP="127.0.0.1";
         //IP = "192.168.0.102";
         IP = MenuHandler.IPAddress;
+        if (IP == null)
+        {
+            IP = "127.0.0.1";
+        }
         port = 8051;
 
         // ----------------------------
@@ -105,15 +108,11 @@ public class Server : MonoBehaviour
     // sendData
     public void sendString(string message)
     {
+        File.AppendAllText(Path.Combine(Application.persistentDataPath, "handwash_robot_dataLog.txt"), DateTime.Now.ToString() + " -> " + message + Environment.NewLine);
         try
         {
-            //if (message != "")
-            //{
-
-            // Daten mit der UTF8-Kodierung in das Binärformat kodieren.
             byte[] data = Encoding.UTF8.GetBytes(message);
 
-            // Den message zum Remote-Client senden.
             client.Send(data, data.Length, remoteEndPoint);
             //}
         }
@@ -147,5 +146,3 @@ public class Server : MonoBehaviour
     }
 
 }
-
-

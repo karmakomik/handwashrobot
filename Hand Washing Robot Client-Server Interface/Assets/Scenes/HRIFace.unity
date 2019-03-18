@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &28212237
 RectTransform:
   m_ObjectHideFlags: 0
@@ -341,7 +341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &347135950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -681,7 +681,7 @@ MonoBehaviour:
   confusedUI: {fileID: 301566035}
   sadUI: {fileID: 2029009573}
   animationUI: {fileID: 669500768}
-  intro: {fileID: 8300000, guid: 33fedad361de85f42b9b29fcb7ba7166, type: 3}
+  intro: {fileID: 8300000, guid: 62b71ddae4ca5584b98cddc42a7a7458, type: 3}
   disgust: {fileID: 8300000, guid: 115203f126824c741b7c0816b6bb8349, type: 3}
   wash_hands_b4_meals: {fileID: 8300000, guid: 504216406bcef9643a322d008065c556, type: 3}
   wash_hands_today_q: {fileID: 8300000, guid: dda40cf7e62bb3946ae496b8aee12379, type: 3}
@@ -711,6 +711,17 @@ MonoBehaviour:
   goodbye_promise: {fileID: 8300000, guid: 71a6381363958fe4989db56270536fe6, type: 3}
   goodbye_final_1: {fileID: 8300000, guid: b81b8c41984a6a749bd8594a5c7e2056, type: 3}
   goodbye_final_2: {fileID: 8300000, guid: 6f5bb0c2e4853e84ca8207c4650631dc, type: 3}
+  song1: {fileID: 8300000, guid: a0caa869d61c0da44b130c9ee485dc20, type: 3}
+  song2: {fileID: 8300000, guid: 76698e2dbae382048ad18b7d0b0cf4e8, type: 3}
+  ente_peru_short: {fileID: 8300000, guid: 9389363af8fffc542b13b828cb8fbe37, type: 3}
+  ente_veedu: {fileID: 8300000, guid: 7ef8acde2e32a7c4abf05fb8bc2a9ebe, type: 3}
+  pinne_parayam: {fileID: 8300000, guid: acc7d7ebe6f920842893408375596005, type: 3}
+  mittayi: {fileID: 8300000, guid: f9ce68a8fe3f1944a855d7b77c828dbd, type: 3}
+  kelkunilla: {fileID: 8300000, guid: a20d11f9ba685114582471aed60e5b4c, type: 3}
+  classil_poku: {fileID: 8300000, guid: 581a0e2c00c8b274199b722f30b61156, type: 3}
+  tata: {fileID: 8300000, guid: d33239c4c0d4a044693b1b2fb1906bc8, type: 3}
+  bye: {fileID: 8300000, guid: 9e19898620f540443881db3d47c12262, type: 3}
+  enne_onnum_cheyalle: {fileID: 8300000, guid: c81598703d086cb4194479a44cd4e312, type: 3}
   currentUI: 
   messageNum: 0
   currMsgNum: 0
