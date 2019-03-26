@@ -25,7 +25,7 @@ public class Client : MonoBehaviour
     public AudioClip steps_intro,step1, step2, step3, step4, step5, step6, step7, step_misc_1, step_misc_2, step_misc_3;
     public AudioClip goodbye_promise, goodbye_final_1, goodbye_final_2;
     public AudioClip song1, song2;
-    public AudioClip ente_peru_short, ente_veedu, pinne_parayam, mittayi, kelkunilla, classil_poku, tata, bye, enne_onnum_cheyalle;
+    public AudioClip ente_peru_short, ente_veedu, pinne_parayam, mittayi, kelkunilla, classil_poku, tata, bye, enne_onnum_cheyalle, vellam_waste;
     AudioSource audioSource;
     public string currentUI;
     public int messageNum, currMsgNum;
@@ -378,6 +378,12 @@ public class Client : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         animator.SetBool("tata_active", false);
+    }
+
+    IEnumerator wait_vellam_waste_active()
+    {
+        yield return new WaitForSeconds(4.5f);
+        animator.SetBool("vellam_waste_active", false);
     }
 
 
@@ -779,6 +785,16 @@ public class Client : MonoBehaviour
 #endif
             animator.SetBool("bye_active", true);
             StartCoroutine(wait_bye_active());
+        }
+        else if (text.Equals("vellam_waste_cheyalle"))
+        {
+            audioSource.clip = vellam_waste;
+            audioSource.Play();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            blCommObj.Call("sendMessage", "e");
+#endif
+            animator.SetBool("vellam_waste_active", true);
+            StartCoroutine(wait_vellam_waste_active());
         }
     }
 

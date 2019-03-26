@@ -722,6 +722,7 @@ MonoBehaviour:
   tata: {fileID: 8300000, guid: d33239c4c0d4a044693b1b2fb1906bc8, type: 3}
   bye: {fileID: 8300000, guid: 9e19898620f540443881db3d47c12262, type: 3}
   enne_onnum_cheyalle: {fileID: 8300000, guid: c81598703d086cb4194479a44cd4e312, type: 3}
+  vellam_waste: {fileID: 8300000, guid: acc0924d7a092f24b892994d5c9b7cc0, type: 3}
   currentUI: 
   messageNum: 0
   currMsgNum: 0
