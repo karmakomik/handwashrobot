@@ -19,9 +19,16 @@ public class MenuHandler : MonoBehaviour
         
     }
 
-    public void setClientIP()
+    public void setClientIPAndStartServer()
     {
         IPAddress = ipInput.text;
+        startServer();
+    }
+
+    public void setClientIPAndStartServer(string ip)
+    {
+        IPAddress = ip;
+        startServer();
     }
 
     public void startClient()

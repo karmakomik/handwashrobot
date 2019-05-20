@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &28212237
 RectTransform:
   m_ObjectHideFlags: 0
@@ -341,7 +341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &347135950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -478,6 +478,100 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &669500768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 669500769}
+  - component: {fileID: 669500771}
+  - component: {fileID: 669500770}
+  - component: {fileID: 669500772}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &669500769
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669500768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1206045026}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -100, y: 0}
+  m_SizeDelta: {x: 3200, y: 2400}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &669500770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669500768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 7e1ceeb1a40f7664d80b071f9aaa5da1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &669500771
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669500768}
+  m_CullTransparentMesh: 0
+--- !u!95 &669500772
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669500768}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 49e92ce00693ff64bb796402067dca8f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &756409710
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &756409711
 RectTransform:
   m_ObjectHideFlags: 0
@@ -586,11 +680,49 @@ MonoBehaviour:
   disgustUI: {fileID: 756409710}
   confusedUI: {fileID: 301566035}
   sadUI: {fileID: 2029009573}
-  laughing: {fileID: 8300000, guid: 8825f3d83d667814e8cda4eee25aa869, type: 3}
-  clapping: {fileID: 8300000, guid: b692b2eb291a3e148b7bb1ad847a0970, type: 3}
-  disgust: {fileID: 8300000, guid: c4b922beb61e79a428a2518402f52240, type: 3}
-  instruction1: {fileID: 0}
-  instruction2: {fileID: 0}
+  animationUI: {fileID: 669500768}
+  intro: {fileID: 8300000, guid: 62b71ddae4ca5584b98cddc42a7a7458, type: 3}
+  disgust: {fileID: 8300000, guid: 115203f126824c741b7c0816b6bb8349, type: 3}
+  wash_hands_b4_meals: {fileID: 8300000, guid: 504216406bcef9643a322d008065c556, type: 3}
+  wash_hands_today_q: {fileID: 8300000, guid: dda40cf7e62bb3946ae496b8aee12379, type: 3}
+  appreciation: {fileID: 8300000, guid: c4443faa4e43e3b4097c7c2b3ab792cf, type: 3}
+  wash_hands_aftr_toilet: {fileID: 8300000, guid: 60b0249edcab9fb4283214ad416e0e11,
+    type: 3}
+  dont_know: {fileID: 8300000, guid: ec730b159a855ce4092de87d4e455029, type: 3}
+  promise1: {fileID: 8300000, guid: 225abad798cac9041a1cc9720a176252, type: 3}
+  promise2: {fileID: 8300000, guid: 035b7939df9cf264289d89f3daae4629, type: 3}
+  promise3: {fileID: 8300000, guid: 8a633ad6a2474c848afa2d237f73755e, type: 3}
+  promise4: {fileID: 8300000, guid: c52baae6b5021464185846fca2cc1a7d, type: 3}
+  promise5: {fileID: 8300000, guid: cacd06cb4f6591f439fcd7527ca808f3, type: 3}
+  promise6: {fileID: 8300000, guid: d7644344ddaa2134483872c2c8061036, type: 3}
+  promise7: {fileID: 8300000, guid: 07e6c263a3595604b950d6e9e50f1a76, type: 3}
+  promise8: {fileID: 8300000, guid: 0bb833da50293304190dbddf96844949, type: 3}
+  steps_intro: {fileID: 8300000, guid: d192013c67babdf4c8b0fcf391b26082, type: 3}
+  step1: {fileID: 8300000, guid: 0861e6f3db3d36141b02438171ae6f4d, type: 3}
+  step2: {fileID: 8300000, guid: 9c940e2b54caf7f44acd55c47156e963, type: 3}
+  step3: {fileID: 8300000, guid: 6309005bebac2464d950cd9197b5e523, type: 3}
+  step4: {fileID: 8300000, guid: 6f7862c121441c34e9ffeb2146dd79c3, type: 3}
+  step5: {fileID: 8300000, guid: fd16be6d62b529649907246450371819, type: 3}
+  step6: {fileID: 8300000, guid: 164e5350245e15f4a8c505348321130a, type: 3}
+  step7: {fileID: 8300000, guid: a1c6998c8822e794d8d78a5a8fb0144a, type: 3}
+  step_misc_1: {fileID: 8300000, guid: 8722659f7a954a44bafa1f23a5ae4177, type: 3}
+  step_misc_2: {fileID: 8300000, guid: 317fae06c6ee0b340b9876a83ceeed04, type: 3}
+  step_misc_3: {fileID: 8300000, guid: 428a7cc329f8e2747985d06a6a8e33d6, type: 3}
+  goodbye_promise: {fileID: 8300000, guid: 71a6381363958fe4989db56270536fe6, type: 3}
+  goodbye_final_1: {fileID: 8300000, guid: b81b8c41984a6a749bd8594a5c7e2056, type: 3}
+  goodbye_final_2: {fileID: 8300000, guid: 6f5bb0c2e4853e84ca8207c4650631dc, type: 3}
+  song1: {fileID: 8300000, guid: a0caa869d61c0da44b130c9ee485dc20, type: 3}
+  song2: {fileID: 8300000, guid: 76698e2dbae382048ad18b7d0b0cf4e8, type: 3}
+  ente_peru_short: {fileID: 8300000, guid: 9389363af8fffc542b13b828cb8fbe37, type: 3}
+  ente_veedu: {fileID: 8300000, guid: 7ef8acde2e32a7c4abf05fb8bc2a9ebe, type: 3}
+  pinne_parayam: {fileID: 8300000, guid: acc7d7ebe6f920842893408375596005, type: 3}
+  mittayi: {fileID: 8300000, guid: f9ce68a8fe3f1944a855d7b77c828dbd, type: 3}
+  kelkunilla: {fileID: 8300000, guid: a20d11f9ba685114582471aed60e5b4c, type: 3}
+  classil_poku: {fileID: 8300000, guid: 581a0e2c00c8b274199b722f30b61156, type: 3}
+  tata: {fileID: 8300000, guid: d33239c4c0d4a044693b1b2fb1906bc8, type: 3}
+  bye: {fileID: 8300000, guid: 9e19898620f540443881db3d47c12262, type: 3}
+  enne_onnum_cheyalle: {fileID: 8300000, guid: c81598703d086cb4194479a44cd4e312, type: 3}
+  vellam_waste: {fileID: 8300000, guid: acc0924d7a092f24b892994d5c9b7cc0, type: 3}
   currentUI: 
   messageNum: 0
   currMsgNum: 0
@@ -798,7 +930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &988061560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -924,6 +1056,7 @@ RectTransform:
   - {fileID: 1415475336}
   - {fileID: 347135950}
   - {fileID: 28212237}
+  - {fileID: 669500769}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
