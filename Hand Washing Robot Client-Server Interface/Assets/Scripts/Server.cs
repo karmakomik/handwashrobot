@@ -114,6 +114,7 @@ public class Server : MonoBehaviour
             byte[] data = Encoding.UTF8.GetBytes(message);
 
             client.Send(data, data.Length, remoteEndPoint);
+            Debug.Log("Sent");
             //}
         }
         catch (Exception err)
